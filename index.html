@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Febriano Doweng - Teknik Informatika</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      .skill-bar {
+        height: 12px;
+        background: #374151;
+        border-radius: 9999px;
+        overflow: hidden;
+      }
+      .skill-fill {
+        height: 100%;
+        background: #ffffff;
+        border-radius: 9999px;
+        transition: width 1.5s ease-in-out;
+      }
+      .hamburger-line {
+        @apply w-6 h-0.5 bg-white transition-all duration-300;
+      }
+    </style>
+  </head>
+  <body
+    class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white"
+  >
+    <!-- Navigation -->
+    <nav
+      id="navbar"
+      class="fixed top-0 w-full z-50 transition-all duration-300"
+    >
+      <div
+        class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <div class="text-2xl font-bold">Portfolio</div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex gap-8">
+          <a
+            href="#home"
+            class="hover:text-gray-300 transition-colors capitalize"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="hover:text-gray-300 transition-colors capitalize"
+            >About</a
+          >
+          <a
+            href="#projects"
+            class="hover:text-gray-300 transition-colors capitalize"
+            >Projects</a
+          >
+          <a href="#cv" class="hover:text-gray-300 transition-colors capitalize"
+            >CV</a
+          >
+          <a
+            href="#contact"
+            class="hover:text-gray-300 transition-colors capitalize"
+            >Contact</a
+          >
+        </div>
+
+        <!-- Hamburger Button (Mobile) -->
+        <button
+          id="hamburgerBtn"
+          class="md:hidden z-50 relative w-8 h-8 flex flex-col justify-center items-center gap-1.5"
+        >
+          <span class="hamburger-line origin-center"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line origin-center"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div
+      id="mobileMenu"
+      class="fixed inset-0 bg-black/95 backdrop-blur-md z-40 hidden flex-col items-center justify-center"
+    >
+      <div class="flex flex-col gap-8 text-3xl">
+        <a
+          href="#home"
+          class="hover:text-gray-300 transition-colors capitalize menu-link"
+          >Home</a
+        >
+        <a
+          href="#about"
+          class="hover:text-gray-300 transition-colors capitalize menu-link"
+          >About</a
+        >
+        <a
+          href="#projects"
+          class="hover:text-gray-300 transition-colors capitalize menu-link"
+          >Projects</a
+        >
+        <a
+          href="#cv"
+          class="hover:text-gray-300 transition-colors capitalize menu-link"
+          >CV</a
+        >
+        <a
+          href="#contact"
+          class="hover:text-gray-300 transition-colors capitalize menu-link"
+          >Contact</a
+        >
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="min-h-screen flex items-center justify-center px-6 pt-20 relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900 opacity-90"
+      ></div>
+
+      <div
+        class="relative z-10 max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center"
+      >
+        <!-- Foto Profil -->
+        <div class="flex flex-col items-center">
+          <div class="relative group">
+            <div
+              class="w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-gray-800 group-hover:border-white transition-all duration-500"
+            >
+              <img
+                id="profileImg"
+                src="img/the man.jpg"
+                alt="Bryant Tuakora"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div
+              class="absolute inset-0 rounded-full ring-4 ring-transparent group-hover:ring-white/20 transition-all duration-500"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Teks -->
+        <div class="text-center md:text-left">
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
+            Halo, Saya Bryant Tuakora
+            <span
+              class="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent"
+            ></span>
+          </h1>
+          <p class="text-2xl md:text-4xl text-gray-300 mb-6">
+            Programer Frontend & Design
+          </p>
+          <p
+            class="text-base md:text-lg lg:text-xl text-gray-400 mb-8 max-w-2xl"
+          >
+            Mahasiswa semester 7 Teknik Informatika di Universitas Nusa Putra
+            dengan passion membuat website.
+          </p>
+
+          <div
+            class="flex flex-col sm:flex-row gap-6 justify-center md:justify-start mb-10"
+          >
+            <a
+              href="#projects"
+              class="px-10 py-4 bg-gradient-to-r from-white to-gray-300 text-black rounded-full hover:scale-105 transition-all font-bold text-lg shadow-lg"
+            >
+              Lihat Project Saya
+            </a>
+            <a
+              href="#contact"
+              class="px-10 py-4 border-2 border-white rounded-full hover:bg-white hover:text-black transition-all font-bold text-lg"
+            >
+              Hubungi Saya
+            </a>
+          </div>
+
+          <div class="flex gap-8 justify-center md:justify-start">
+            <a
+              href="https://github.com/Febriano-Doweng"
+              target="_blank"
+              class="hover:text-gray-300 transition-colors"
+              ><i data-lucide="github" class="w-8 h-8"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/brynd-tuakora-8a8a28293/"
+              target="_blank"
+              class="hover:text-gray-300 transition-colors"
+              ><i data-lucide="linkedin" class="w-8 h-8"></i
+            ></a>
+            <a
+              href="mailto:febriano.doweng_ti22@nusaputra.ac.id"
+              class="hover:text-gray-300 transition-colors"
+              ><i data-lucide="mail" class="w-8 h-8"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section
+      id="about"
+      class="min-h-screen flex items-center justify-center px-6 py-20"
+    >
+      <div class="max-w-4xl w-full">
+        <div class="flex items-center gap-4 mb-10">
+          <i data-lucide="user" class="w-8 h-8"></i>
+          <h2 class="text-4xl font-bold">Tentang Saya</h2>
+        </div>
+        <div
+          class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-10 border-2 border-gray-700"
+        >
+          <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+            Saya adalah mahasiswa Teknik Informatika semester 7 di Universitas
+            Nusa Putra, Sukabumi. Memiliki minat yang besar dalam pengembangan
+            web. Aktif mengikuti organisasi kampus dan terus mengasah kemampuan
+            programming melalui berbagai proyek.
+          </p>
+          <div class="space-y-6">
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-semibold">HTML & CSS</span
+                ><span class="text-gray-300">65%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill w-0" data-width="65"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-semibold">JavaScript</span
+                ><span class="text-gray-300">25%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill w-0" data-width="25"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-semibold">PHP</span
+                ><span class="text-gray-300">20%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill w-0" data-width="20"></div>
+              </div>
+            </div>
+            <div></div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-semibold">MySQL</span
+                ><span class="text-gray-300">20%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill w-0" data-width="20"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-semibold">Python</span
+                ><span class="text-gray-300">70%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill w-0" data-width="70"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section
+      id="projects"
+      class="min-h-screen flex items-center justify-center px-6 py-20"
+    >
+      <div class="max-w-6xl w-full">
+        <div class="flex items-center gap-4 mb-12">
+          <i data-lucide="briefcase" class="w-8 h-8"></i>
+          <h2 class="text-4xl font-bold">Proyek Saya</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border-2 border-gray-700 hover:border-white hover:scale-105 transition-all duration-300"
+          >
+            <img
+              src="img/Screenshot 2025-12-05 102901.png"
+              alt="Company Website"
+              class="w-full h-48 object-cover rounded-xl mb-6"
+            />
+            <h3 class="text-2xl font-bold mb-3">Company profil</h3>
+            <p class="text-gray-400 mb-6">
+             Simple website
+            </p>
+            <div class="flex flex-wrap gap-3 mb-6">
+              <span class="px-4 py-1 bg-white/10 rounded-full text-sm"
+                >HTML</span
+              >
+              <span class="px-4 py-1 bg-white/10 rounded-full text-sm"
+                >CSS</span
+              >
+              <span class="px-4 py-1 bg-white/10 rounded-full text-sm"
+              >Java Script</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CV Section -->
+    <section
+      id="cv"
+      class="min-h-screen flex items-center justify-center px-6 py-20"
+    >
+      <div class="max-w-4xl w-full">
+        <div class="flex items-center gap-4 mb-10">
+          <i data-lucide="file-text" class="w-8 h-8"></i>
+          <h2 class="text-4xl font-bold">Curriculum Vitae</h2>
+        </div>
+        <div
+          class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-10 border-2 border-gray-700"
+        >
+          <div class="space-y-8">
+            <div class="space-y-8">
+              <div class="border-b border-gray-700 pb-6">
+                <h3 class="text-2xl font-bold mb-4">Informasi Pribadi</h3>
+                <div class="grid md:grid-cols-2 gap-6 text-gray-300">
+                  <div>
+                    <p class="text-sm text-gray-400">Status</p>
+                    <p class="font-semibold">Mahasiswa Aktif</p>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-400">Semester</p>
+                    <p class="font-semibold">7 (Tujuh)</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="border-b border-gray-700 pb-6">
+                <h3 class="text-2xl font-bold mb-4">Pendidikan</h3>
+                <div class="space-y-6">
+                  <div>
+                    <p class="font-semibold text-xl">S1 Teknik Informatika</p>
+                    <p class="text-gray-300">Universitas Nusa Putra</p>
+                    <p class="text-gray-400 text-sm">
+                      2022 - Sekarang (Semester 7)
+                    </p>
+                    <p class="text-gray-400 text-sm mt-1">
+                      Jl. Raya Cibolang No.21, Cisaat, Sukabumi 43152, Indonesia
+                    </p>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-xl">
+                      SMK - Teknik Komputer & Jaringan
+                    </p>
+                    <p class="text-gray-300">
+                      SMK St. Yohanes Donbosco Teknologi Dan Rekayasa Mimika,
+                      Kabupaten Mimika
+                    </p>
+                    <p class="text-gray-400 text-sm">2017 - 2020</p>
+                    <p class="text-gray-400 text-sm mt-1">
+                      JL. Baru Depan Petrosea Irigasi Dalam, Kwamki, Kec. Mimika
+                      Baru, Kab. Mimika, Papua.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="border-b border-gray-700 pb-6">
+                <h3 class="text-2xl font-bold mb-4">Pengalaman Organisasi</h3>
+                <div class="space-y-5">
+                  <div>
+                    <p class="font-semibold">
+                      Anggota Himpunan Mahasiswa Teknik Informatika
+                    </p>
+                    <p class="text-gray-400 text-sm">2022 - Sekarang</p>
+                    <p class="text-gray-300 mt-1">
+                      Aktif dalam kegiatan workshop dan seminar teknologi
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="border-b border-gray-700 pb-6">
+                <h3 class="text-2xl font-bold mb-4">Keahlian Teknis</h3>
+                <div
+                  class="grid grid-cols-2 md:grid-cols-3 gap-3 text-gray-300"
+                >
+                  <p>• HTML, CSS, JavaScript Basics</p>
+                  <p>• Python Basics</p>
+                  <p>• Git & GitHub</p>
+                  <p>• Design (Canva)</p>
+                </div>
+              </div>
+
+              <div class="pb-6">
+                <h3 class="text-2xl font-bold mb-4">Sertifikat</h3>
+                <div class="space-y-2 text-gray-300">
+                  <p>
+                    • Sertifikat Seminar Web Development - Dicoding Indonesia
+                  </p>
+                  <p>• (Tambahkan sertifikat lain di sini)</p>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section
+      id="contact"
+      class="min-h-screen flex items-center justify-center px-6 py-20"
+    >
+      <div class="max-w-5xl w-full">
+        <div class="flex items-center gap-4 mb-10">
+          <i data-lucide="mail" class="w-8 h-8"></i>
+          <h2 class="text-4xl font-bold">Hubungi Saya</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10">
+          <div
+            class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-10 border-2 border-gray-700"
+          >
+            <h3 class="text-2xl font-bold mb-6">Mari Berkolaborasi</h3>
+            <p class="text-gray-300 mb-8 leading-relaxed">
+              Saya terbuka untuk kolaborasi proyek, magang, atau diskusi seputar
+              teknologi dan programming. Jangan ragu untuk menghubungi saya!
+            </p>
+            <div class="space-y-6">
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center"
+                >
+                  <i data-lucide="mail" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400">Email Mahasiswa</p>
+                  <p class="font-semibold">
+                    febriano.doweng_ti22@nusaputra.ac.id
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center"
+                >
+                  <i data-lucide="message-circle" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400">WhatsApp</p>
+                  <p class="font-semibold">+62 852-8356-3074</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center"
+                >
+                  <i data-lucide="user" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400">Kampus</p>
+                  <p class="font-semibold text-sm">Universitas Nusa Putra</p>
+                  <p class="text-gray-400 text-xs">
+                    Jl. Raya Cibolang No.21, Cisaat, Sukabumi
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <a
+              href="https://www.linkedin.com/in/brynd-tuakora-8a8a28293/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-6 p-6 bg-gray-800/50 backdrop-blur-sm rounded-2xl border-2 border-gray-700 hover:border-white hover:bg-gray-800/70 transition-all group"
+            >
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"
+              >
+                <i data-lucide="linkedin" class="w-8 h-8 text-white"></i>
+              </div>
+              <div class="flex-1">
+                <p class="font-bold text-lg">LinkedIn</p>
+                <p class="text-gray-400 text-sm">Jaringan profesional</p>
+                <p class="text-gray-300 mt-1">linkedin.com/in/brynd-tuakora</p>
+              </div>
+              <i
+                data-lucide="external-link"
+                class="w-5 h-5 text-gray-400 group-hover:text-white"
+              ></i>
+            </a>
+
+            <a
+              href="https://github.com/Febriano-Doweng"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-6 p-6 bg-gray-800/50 backdrop-blur-sm rounded-2xl border-2 border-gray-700 hover:border-white hover:bg-gray-800/70 transition-all group"
+            >
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-gray-600 to-gray-800 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"
+              >
+                <i data-lucide="github" class="w-8 h-8 text-white"></i>
+              </div>
+              <div class="flex-1">
+                <p class="font-bold text-lg">GitHub</p>
+                <p class="text-gray-400 text-sm">Portfolio kode & proyek</p>
+                <p class="text-gray-300 mt-1">github.com/Febriano-Doweng</p>
+              </div>
+              <i
+                data-lucide="external-link"
+                class="w-5 h-5 text-gray-400 group-hover:text-white"
+              ></i>
+            </a>
+
+            <a
+              href="https://www.instagram.com/bryantuakora"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-6 p-6 bg-gray-800/50 backdrop-blur-sm rounded-2xl border-2 border-gray-700 hover:border-white hover:bg-gray-800/70 transition-all group"
+            >
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"
+              >
+                <i data-lucide="instagram" class="w-8 h-8 text-white"></i>
+              </div>
+              <div class="flex-1">
+                <p class="font-bold text-lg">Instagram</p>
+                <p class="text-gray-400 text-sm">Behind the scenes</p>
+                <p class="text-gray-300 mt-1">@bryantuakora</p>
+              </div>
+              <i
+                data-lucide="external-link"
+                class="w-5 h-5 text-gray-400 group-hover:text-white"
+              ></i>
+            </a>
+
+            <a
+              href="https://wa.me/6285283563074"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-6 p-6 bg-gray-800/50 backdrop-blur-sm rounded-2xl border-2 border-gray-700 hover:border-white hover:bg-gray-800/70 transition-all group"
+            >
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"
+              >
+                <i data-lucide="message-circle" class="w-8 h-8 text-white"></i>
+              </div>
+              <div class="flex-1">
+                <p class="font-bold text-lg">WhatsApp</p>
+                <p class="text-gray-400 text-sm">Chat langsung</p>
+                <p class="text-gray-300 mt-1">+62 852-8356-3074</p>
+              </div>
+              <i
+                data-lucide="external-link"
+                class="w-5 h-5 text-gray-400 group-hover:text-white"
+              ></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-10 border-t-2 border-gray-700">
+      <p class="text-gray-400">
+        © 2025 Bumble Bee - Semua Hak Cipta Dilindungi
+      </p>
+    </footer>
+
+    <script>
+      lucide.createIcons();
+
+      window.addEventListener("scroll", () => {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("bg-black/95", "backdrop-blur-sm", "shadow-lg");
+        } else {
+          navbar.classList.remove(
+            "bg-black/95",
+            "backdrop-blur-sm",
+            "shadow-lg"
+          );
+        }
+      });
+
+      const hamburgerBtn = document.getElementById("hamburgerBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const lines = hamburgerBtn.querySelectorAll(".hamburger-line");
+
+      hamburgerBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        mobileMenu.classList.toggle("flex");
+
+        lines[0].classList.toggle("rotate-45");
+        lines[0].classList.toggle("translate-y-2");
+        lines[1].classList.toggle("opacity-0");
+        lines[2].classList.toggle("-rotate-45");
+        lines[2].classList.toggle("-translate-y-2");
+      });
+
+      document.querySelectorAll(".menu-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          mobileMenu.classList.remove("flex");
+          lines[0].classList.remove("rotate-45", "translate-y-2");
+          lines[1].classList.remove("opacity-0");
+          lines[2].classList.remove("-rotate-45", "-translate-y-2");
+        });
+      });
+
+      mobileMenu.addEventListener("click", (e) => {
+        if (e.target === mobileMenu) {
+          mobileMenu.classList.add("hidden");
+          mobileMenu.classList.remove("flex");
+          lines[0].classList.remove("rotate-45", "translate-y-2");
+          lines[1].classList.remove("opacity-0");
+          lines[2].classList.remove("-rotate-45", "-translate-y-2");
+        }
+      });
+
+      const skillBars = document.querySelectorAll(".skill-fill");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const bar = entry.target;
+              const width = bar.getAttribute("data-width");
+              bar.style.width = width + "%";
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+      skillBars.forEach((bar) => observer.observe(bar));
+    </script>
+  </body>
+</html>
