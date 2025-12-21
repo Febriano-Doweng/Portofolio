@@ -20,12 +20,15 @@
       }
       .skill-fill {
         height: 100%;
-        background: #ffffff;
+        background: linear-gradient(90deg, #ffffff 0%, #d1d5db 100%);
         border-radius: 9999px;
         transition: width 1.5s ease-in-out;
       }
       .hamburger-line {
-        @apply w-6 h-0.5 bg-white transition-all duration-300;
+        width: 1.5rem;
+        height: 2px;
+        background: white;
+        transition: all 0.3s;
       }
     </style>
   </head>
@@ -138,6 +141,7 @@
                 src="the man.jpg"
                 alt="Bryant Tuakora"
                 class="w-full h-full object-cover"
+                onerror="this.src='https://via.placeholder.com/400x400/1f2937/ffffff?text=Bryant+Tuakora'"
               />
             </div>
             <div
@@ -149,19 +153,20 @@
         <!-- Teks -->
         <div class="text-center md:text-left">
           <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
-            Halo, Saya Bryant Tuakora
+            Halo, Saya
             <span
               class="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent"
-            ></span>
+              >Bryant Tuakora</span
+            >
           </h1>
           <p class="text-2xl md:text-4xl text-gray-300 mb-6">
-            Programer Frontend & Design
+            Frontend Developer & Designer
           </p>
           <p
             class="text-base md:text-lg lg:text-xl text-gray-400 mb-8 max-w-2xl"
           >
             Mahasiswa semester 7 Teknik Informatika di Universitas Nusa Putra
-            dengan passion membuat website.
+            dengan passion membuat website yang modern dan user-friendly.
           </p>
 
           <div
@@ -220,7 +225,8 @@
           <p class="text-lg text-gray-300 mb-8 leading-relaxed">
             Saya adalah mahasiswa Teknik Informatika semester 7 di Universitas
             Nusa Putra, Sukabumi. Memiliki minat yang besar dalam pengembangan
-            web. Aktif mengikuti organisasi kampus dan terus mengasah kemampuan
+            web modern dengan fokus pada frontend development dan UI/UX design.
+            Aktif mengikuti organisasi kampus dan terus mengasah kemampuan
             programming melalui berbagai proyek.
           </p>
           <div class="space-y-6">
@@ -251,7 +257,6 @@
                 <div class="skill-fill w-0" data-width="20"></div>
               </div>
             </div>
-            <div></div>
             <div>
               <div class="flex justify-between mb-2">
                 <span class="font-semibold">MySQL</span
@@ -275,7 +280,7 @@
       </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section - company profil -->
     <section
       id="projects"
       class="min-h-screen flex items-center justify-center px-6 py-20"
@@ -285,7 +290,8 @@
           <i data-lucide="briefcase" class="w-8 h-8"></i>
           <h2 class="text-4xl font-bold">Proyek Saya</h2>
         </div>
-        <div class="grid md:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
           <div
             class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border-2 border-gray-700 hover:border-white hover:scale-105 transition-all duration-300"
           >
@@ -293,10 +299,11 @@
               src="Screenshot 2025-12-05 102901.png"
               alt="Company Website"
               class="w-full h-48 object-cover rounded-xl mb-6"
+              onerror="this.src='https://via.placeholder.com/400x300/1f2937/ffffff?text=Company+Profile'"
             />
-            <h3 class="text-2xl font-bold mb-3">Company profil</h3>
+            <h3 class="text-2xl font-bold mb-3">Company Profile</h3>
             <p class="text-gray-400 mb-6">
-             Simple website
+              Website profil perusahaan dengan desain modern dan responsif
             </p>
             <div class="flex flex-wrap gap-3 mb-6">
               <span class="px-4 py-1 bg-white/10 rounded-full text-sm"
@@ -306,8 +313,56 @@
                 >CSS</span
               >
               <span class="px-4 py-1 bg-white/10 rounded-full text-sm"
-              >Java Script</span
+                >JavaScript</span
+              >
+            </div>
+          </div>
+
+          <!-- Project 2 - portofolio -->
+          <div
+            class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border-2 border-gray-700 hover:border-white hover:scale-105 transition-all duration-300"
+          >
+            <img
+              src="Screenshot 2025-12-22 082716.png"
+              alt="Company Website"
+              class="w-full h-48 object-cover rounded-xl mb-6"
+              onerror="this.src='https://via.placeholder.com/400x300/1f2937/ffffff?text=Company+Profile'"
+            />
+            <h3 class="text-2xl font-bold mb-3">Portfolio Website</h3>
+            <p class="text-gray-400 mb-6">
+              Website portfolio pribadi dengan animasi interaktif
+            </p>
+            <div class="flex flex-wrap gap-3 mb-6">
+              <span class="px-4 py-1 bg-white/10 rounded-full text-sm"
+                >HTML</span
+              >
+              <span class="px-4 py-1 bg-white/10 rounded-full text-sm"
+                >CSS</span
+              >
+              <span class="px-4 py-1 bg-white/10 rounded-full text-sm"
+                >JavaScript</span
+              >
+            </div>
+          </div>
+
+          <!-- Project 3 - Template -->
+          <div
+            class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border-2 border-gray-700 hover:border-white hover:scale-105 transition-all duration-300"
+          >
+            <div
+              class="w-full h-48 bg-gray-700 rounded-xl mb-6 flex items-center justify-center"
             >
+              <i data-lucide="code" class="w-16 h-16 text-gray-500"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Coming Soon</h3>
+            <p class="text-gray-400 mb-6">
+              Proyek baru sedang dalam pengembangan
+            </p>
+            <div class="flex flex-wrap gap-3 mb-6">
+              <span class="px-4 py-1 bg-white/10 rounded-full text-sm"
+                >TBA</span
+              >
+            </div>
           </div>
         </div>
       </div>
@@ -327,86 +382,85 @@
           class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-10 border-2 border-gray-700"
         >
           <div class="space-y-8">
-            <div class="space-y-8">
-              <div class="border-b border-gray-700 pb-6">
-                <h3 class="text-2xl font-bold mb-4">Informasi Pribadi</h3>
-                <div class="grid md:grid-cols-2 gap-6 text-gray-300">
-                  <div>
-                    <p class="text-sm text-gray-400">Status</p>
-                    <p class="font-semibold">Mahasiswa Aktif</p>
-                  </div>
-                  <div>
-                    <p class="text-sm text-gray-400">Semester</p>
-                    <p class="font-semibold">7 (Tujuh)</p>
-                  </div>
+            <div class="border-b border-gray-700 pb-6">
+              <h3 class="text-2xl font-bold mb-4">Informasi Pribadi</h3>
+              <div class="grid md:grid-cols-2 gap-6 text-gray-300">
+                <div>
+                  <p class="text-sm text-gray-400">Status</p>
+                  <p class="font-semibold">Mahasiswa Aktif</p>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400">Semester</p>
+                  <p class="font-semibold">7 (Tujuh)</p>
                 </div>
               </div>
+            </div>
 
-              <div class="border-b border-gray-700 pb-6">
-                <h3 class="text-2xl font-bold mb-4">Pendidikan</h3>
-                <div class="space-y-6">
-                  <div>
-                    <p class="font-semibold text-xl">S1 Teknik Informatika</p>
-                    <p class="text-gray-300">Universitas Nusa Putra</p>
-                    <p class="text-gray-400 text-sm">
-                      2022 - Sekarang (Semester 7)
-                    </p>
-                    <p class="text-gray-400 text-sm mt-1">
-                      Jl. Raya Cibolang No.21, Cisaat, Sukabumi 43152, Indonesia
-                    </p>
-                  </div>
-                  <div>
-                    <p class="font-semibold text-xl">
-                      SMK - Teknik Komputer & Jaringan
-                    </p>
-                    <p class="text-gray-300">
-                      SMK St. Yohanes Donbosco Teknologi Dan Rekayasa Mimika,
-                      Kabupaten Mimika
-                    </p>
-                    <p class="text-gray-400 text-sm">2017 - 2020</p>
-                    <p class="text-gray-400 text-sm mt-1">
-                      JL. Baru Depan Petrosea Irigasi Dalam, Kwamki, Kec. Mimika
-                      Baru, Kab. Mimika, Papua.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="border-b border-gray-700 pb-6">
-                <h3 class="text-2xl font-bold mb-4">Pengalaman Organisasi</h3>
-                <div class="space-y-5">
-                  <div>
-                    <p class="font-semibold">
-                      Anggota Himpunan Mahasiswa Teknik Informatika
-                    </p>
-                    <p class="text-gray-400 text-sm">2022 - Sekarang</p>
-                    <p class="text-gray-300 mt-1">
-                      Aktif dalam kegiatan workshop dan seminar teknologi
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="border-b border-gray-700 pb-6">
-                <h3 class="text-2xl font-bold mb-4">Keahlian Teknis</h3>
-                <div
-                  class="grid grid-cols-2 md:grid-cols-3 gap-3 text-gray-300"
-                >
-                  <p>• HTML, CSS, JavaScript Basics</p>
-                  <p>• Python Basics</p>
-                  <p>• Git & GitHub</p>
-                  <p>• Design (Canva)</p>
-                </div>
-              </div>
-
-              <div class="pb-6">
-                <h3 class="text-2xl font-bold mb-4">Sertifikat</h3>
-                <div class="space-y-2 text-gray-300">
-                  <p>
-                    • Sertifikat Seminar Web Development - Dicoding Indonesia
+            <div class="border-b border-gray-700 pb-6">
+              <h3 class="text-2xl font-bold mb-4">Pendidikan</h3>
+              <div class="space-y-6">
+                <div>
+                  <p class="font-semibold text-xl">S1 Teknik Informatika</p>
+                  <p class="text-gray-300">Universitas Nusa Putra</p>
+                  <p class="text-gray-400 text-sm">
+                    2022 - Sekarang (Semester 7)
                   </p>
-                  <p>• (Tambahkan sertifikat lain di sini)</p>
+                  <p class="text-gray-400 text-sm mt-1">
+                    Jl. Raya Cibolang No.21, Cisaat, Sukabumi 43152, Indonesia
+                  </p>
                 </div>
+                <div>
+                  <p class="font-semibold text-xl">
+                    SMK - Teknik Komputer & Jaringan
+                  </p>
+                  <p class="text-gray-300">
+                    SMK St. Yohanes Donbosco Teknologi Dan Rekayasa Mimika,
+                    Kabupaten Mimika
+                  </p>
+                  <p class="text-gray-400 text-sm">2017 - 2020</p>
+                  <p class="text-gray-400 text-sm mt-1">
+                    JL. Baru Depan Petrosea Irigasi Dalam, Kwamki, Kec. Mimika
+                    Baru, Kab. Mimika, Papua.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="border-b border-gray-700 pb-6">
+              <h3 class="text-2xl font-bold mb-4">Pengalaman Organisasi</h3>
+              <div class="space-y-5">
+                <div>
+                  <p class="font-semibold">
+                    Anggota Himpunan Mahasiswa Teknik Informatika
+                  </p>
+                  <p class="text-gray-400 text-sm">2022 - Sekarang</p>
+                  <p class="text-gray-300 mt-1">
+                    Aktif dalam kegiatan workshop dan seminar teknologi
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="border-b border-gray-700 pb-6">
+              <h3 class="text-2xl font-bold mb-4">Keahlian Teknis</h3>
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-3 text-gray-300">
+                <p>• HTML, CSS, JavaScript</p>
+                <p>• Python Basics</p>
+                <p>• Git & GitHub</p>
+                <p>• Design (Canva)</p>
+                <p>• Responsive Design</p>
+                <p>• UI/UX Basics</p>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Sertifikat</h3>
+              <div class="space-y-2 text-gray-300">
+                <p>• Sertifikat Seminar Web Development - Dicoding Indonesia</p>
+                <p class="text-gray-400 text-sm">
+                  (Tambahkan sertifikat lainnya di sini)
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -416,57 +470,70 @@
     <!-- Contact Section -->
     <section
       id="contact"
-      class="min-h-screen flex items-center justify-center px-6 py-20"
+      class="min-h-screen flex items-center justify-center px-4 sm:px-6 py-20"
     >
       <div class="max-w-5xl w-full">
-        <div class="flex items-center gap-4 mb-10">
-          <i data-lucide="mail" class="w-8 h-8"></i>
-          <h2 class="text-4xl font-bold">Hubungi Saya</h2>
+        <div class="flex items-center gap-4 mb-8 sm:mb-10">
+          <i data-lucide="mail" class="w-6 h-6 sm:w-8 sm:h-8"></i>
+          <h2 class="text-3xl sm:text-4xl font-bold">Hubungi Saya</h2>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10">
           <div
-            class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-10 border-2 border-gray-700"
+            class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-10 border-2 border-gray-700"
           >
-            <h3 class="text-2xl font-bold mb-6">Mari Berkolaborasi</h3>
-            <p class="text-gray-300 mb-8 leading-relaxed">
+            <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">
+              Mari Berkolaborasi
+            </h3>
+            <p
+              class="text-sm sm:text-base text-gray-300 mb-6 sm:mb-8 leading-relaxed"
+            >
               Saya terbuka untuk kolaborasi proyek, magang, atau diskusi seputar
               teknologi dan programming. Jangan ragu untuk menghubungi saya!
             </p>
-            <div class="space-y-6">
-              <div class="flex items-center gap-4">
+            <div class="space-y-4 sm:space-y-6">
+              <div class="flex items-center gap-3 sm:gap-4">
                 <div
-                  class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center"
+                  class="w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0"
                 >
-                  <i data-lucide="mail" class="w-5 h-5"></i>
+                  <i data-lucide="mail" class="w-4 h-4 sm:w-5 sm:h-5"></i>
                 </div>
-                <div>
-                  <p class="text-sm text-gray-400">Email Mahasiswa</p>
-                  <p class="font-semibold">
+                <div class="min-w-0 flex-1">
+                  <p class="text-xs sm:text-sm text-gray-400">
+                    Email Mahasiswa
+                  </p>
+                  <p class="font-semibold text-xs sm:text-sm break-all">
                     febriano.doweng_ti22@nusaputra.ac.id
                   </p>
                 </div>
               </div>
-              <div class="flex items-center gap-4">
+              <div class="flex items-center gap-3 sm:gap-4">
                 <div
-                  class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center"
+                  class="w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0"
                 >
-                  <i data-lucide="message-circle" class="w-5 h-5"></i>
+                  <i
+                    data-lucide="message-circle"
+                    class="w-4 h-4 sm:w-5 sm:h-5"
+                  ></i>
                 </div>
-                <div>
-                  <p class="text-sm text-gray-400">WhatsApp</p>
-                  <p class="font-semibold">+62 852-8356-3074</p>
+                <div class="min-w-0 flex-1">
+                  <p class="text-xs sm:text-sm text-gray-400">WhatsApp</p>
+                  <p class="font-semibold text-sm sm:text-base">
+                    +62 852-8356-3074
+                  </p>
                 </div>
               </div>
-              <div class="flex items-center gap-4">
+              <div class="flex items-center gap-3 sm:gap-4">
                 <div
-                  class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center"
+                  class="w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0"
                 >
-                  <i data-lucide="user" class="w-5 h-5"></i>
+                  <i data-lucide="map-pin" class="w-4 h-4 sm:w-5 sm:h-5"></i>
                 </div>
-                <div>
-                  <p class="text-sm text-gray-400">Kampus</p>
-                  <p class="font-semibold text-sm">Universitas Nusa Putra</p>
+                <div class="min-w-0 flex-1">
+                  <p class="text-xs sm:text-sm text-gray-400">Kampus</p>
+                  <p class="font-semibold text-xs sm:text-sm">
+                    Universitas Nusa Putra
+                  </p>
                   <p class="text-gray-400 text-xs">
                     Jl. Raya Cibolang No.21, Cisaat, Sukabumi
                   </p>
@@ -475,26 +542,33 @@
             </div>
           </div>
 
-          <div class="space-y-6">
+          <div class="space-y-4 sm:space-y-6">
             <a
               href="https://www.linkedin.com/in/brynd-tuakora-8a8a28293/"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center gap-6 p-6 bg-gray-800/50 backdrop-blur-sm rounded-2xl border-2 border-gray-700 hover:border-white hover:bg-gray-800/70 transition-all group"
+              class="flex items-center gap-4 sm:gap-6 p-4 sm:p-6 bg-gray-800/50 backdrop-blur-sm rounded-xl sm:rounded-2xl border-2 border-gray-700 hover:border-white hover:bg-gray-800/70 transition-all group"
             >
               <div
-                class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"
+                class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg sm:rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0"
               >
-                <i data-lucide="linkedin" class="w-8 h-8 text-white"></i>
+                <i
+                  data-lucide="linkedin"
+                  class="w-6 h-6 sm:w-8 sm:h-8 text-white"
+                ></i>
               </div>
-              <div class="flex-1">
-                <p class="font-bold text-lg">LinkedIn</p>
-                <p class="text-gray-400 text-sm">Jaringan profesional</p>
-                <p class="text-gray-300 mt-1">linkedin.com/in/brynd-tuakora</p>
+              <div class="flex-1 min-w-0">
+                <p class="font-bold text-base sm:text-lg">LinkedIn</p>
+                <p class="text-gray-400 text-xs sm:text-sm">
+                  Jaringan profesional
+                </p>
+                <p class="text-gray-300 mt-1 text-xs sm:text-sm truncate">
+                  linkedin.com/in/brynd-tuakora
+                </p>
               </div>
               <i
                 data-lucide="external-link"
-                class="w-5 h-5 text-gray-400 group-hover:text-white"
+                class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-white flex-shrink-0"
               ></i>
             </a>
 
@@ -502,21 +576,28 @@
               href="https://github.com/Febriano-Doweng"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center gap-6 p-6 bg-gray-800/50 backdrop-blur-sm rounded-2xl border-2 border-gray-700 hover:border-white hover:bg-gray-800/70 transition-all group"
+              class="flex items-center gap-4 sm:gap-6 p-4 sm:p-6 bg-gray-800/50 backdrop-blur-sm rounded-xl sm:rounded-2xl border-2 border-gray-700 hover:border-white hover:bg-gray-800/70 transition-all group"
             >
               <div
-                class="w-16 h-16 bg-gradient-to-br from-gray-600 to-gray-800 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"
+                class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-gray-600 to-gray-800 rounded-lg sm:rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0"
               >
-                <i data-lucide="github" class="w-8 h-8 text-white"></i>
+                <i
+                  data-lucide="github"
+                  class="w-6 h-6 sm:w-8 sm:h-8 text-white"
+                ></i>
               </div>
-              <div class="flex-1">
-                <p class="font-bold text-lg">GitHub</p>
-                <p class="text-gray-400 text-sm">Portfolio kode & proyek</p>
-                <p class="text-gray-300 mt-1">github.com/Febriano-Doweng</p>
+              <div class="flex-1 min-w-0">
+                <p class="font-bold text-base sm:text-lg">GitHub</p>
+                <p class="text-gray-400 text-xs sm:text-sm">
+                  Portfolio kode & proyek
+                </p>
+                <p class="text-gray-300 mt-1 text-xs sm:text-sm truncate">
+                  github.com/Febriano-Doweng
+                </p>
               </div>
               <i
                 data-lucide="external-link"
-                class="w-5 h-5 text-gray-400 group-hover:text-white"
+                class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-white flex-shrink-0"
               ></i>
             </a>
 
@@ -524,21 +605,28 @@
               href="https://www.instagram.com/bryantuakora"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center gap-6 p-6 bg-gray-800/50 backdrop-blur-sm rounded-2xl border-2 border-gray-700 hover:border-white hover:bg-gray-800/70 transition-all group"
+              class="flex items-center gap-4 sm:gap-6 p-4 sm:p-6 bg-gray-800/50 backdrop-blur-sm rounded-xl sm:rounded-2xl border-2 border-gray-700 hover:border-white hover:bg-gray-800/70 transition-all group"
             >
               <div
-                class="w-16 h-16 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"
+                class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 rounded-lg sm:rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0"
               >
-                <i data-lucide="instagram" class="w-8 h-8 text-white"></i>
+                <i
+                  data-lucide="instagram"
+                  class="w-6 h-6 sm:w-8 sm:h-8 text-white"
+                ></i>
               </div>
-              <div class="flex-1">
-                <p class="font-bold text-lg">Instagram</p>
-                <p class="text-gray-400 text-sm">Behind the scenes</p>
-                <p class="text-gray-300 mt-1">@bryantuakora</p>
+              <div class="flex-1 min-w-0">
+                <p class="font-bold text-base sm:text-lg">Instagram</p>
+                <p class="text-gray-400 text-xs sm:text-sm">
+                  Behind the scenes
+                </p>
+                <p class="text-gray-300 mt-1 text-xs sm:text-sm truncate">
+                  @bryantuakora
+                </p>
               </div>
               <i
                 data-lucide="external-link"
-                class="w-5 h-5 text-gray-400 group-hover:text-white"
+                class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-white flex-shrink-0"
               ></i>
             </a>
 
@@ -546,21 +634,26 @@
               href="https://wa.me/6285283563074"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center gap-6 p-6 bg-gray-800/50 backdrop-blur-sm rounded-2xl border-2 border-gray-700 hover:border-white hover:bg-gray-800/70 transition-all group"
+              class="flex items-center gap-4 sm:gap-6 p-4 sm:p-6 bg-gray-800/50 backdrop-blur-sm rounded-xl sm:rounded-2xl border-2 border-gray-700 hover:border-white hover:bg-gray-800/70 transition-all group"
             >
               <div
-                class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"
+                class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-lg sm:rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0"
               >
-                <i data-lucide="message-circle" class="w-8 h-8 text-white"></i>
+                <i
+                  data-lucide="message-circle"
+                  class="w-6 h-6 sm:w-8 sm:h-8 text-white"
+                ></i>
               </div>
-              <div class="flex-1">
-                <p class="font-bold text-lg">WhatsApp</p>
-                <p class="text-gray-400 text-sm">Chat langsung</p>
-                <p class="text-gray-300 mt-1">+62 852-8356-3074</p>
+              <div class="flex-1 min-w-0">
+                <p class="font-bold text-base sm:text-lg">WhatsApp</p>
+                <p class="text-gray-400 text-xs sm:text-sm">Chat langsung</p>
+                <p class="text-gray-300 mt-1 text-sm sm:text-base">
+                  +62 852-8356-3074
+                </p>
               </div>
               <i
                 data-lucide="external-link"
-                class="w-5 h-5 text-gray-400 group-hover:text-white"
+                class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-white flex-shrink-0"
               ></i>
             </a>
           </div>
@@ -571,13 +664,14 @@
     <!-- Footer -->
     <footer class="text-center py-10 border-t-2 border-gray-700">
       <p class="text-gray-400">
-        © 2025 Bumble Bee - Semua Hak Cipta Dilindungi
+        © 2025 Bryant Tuakora - Semua Hak Cipta Dilindungi
       </p>
     </footer>
 
     <script>
       lucide.createIcons();
 
+      // Navbar scroll effect
       window.addEventListener("scroll", () => {
         const navbar = document.getElementById("navbar");
         if (window.scrollY > 50) {
@@ -591,6 +685,7 @@
         }
       });
 
+      // Hamburger menu
       const hamburgerBtn = document.getElementById("hamburgerBtn");
       const mobileMenu = document.getElementById("mobileMenu");
       const lines = hamburgerBtn.querySelectorAll(".hamburger-line");
@@ -606,6 +701,7 @@
         lines[2].classList.toggle("-translate-y-2");
       });
 
+      // Close mobile menu when clicking on link
       document.querySelectorAll(".menu-link").forEach((link) => {
         link.addEventListener("click", () => {
           mobileMenu.classList.add("hidden");
@@ -616,6 +712,7 @@
         });
       });
 
+      // Close mobile menu when clicking outside
       mobileMenu.addEventListener("click", (e) => {
         if (e.target === mobileMenu) {
           mobileMenu.classList.add("hidden");
@@ -626,6 +723,7 @@
         }
       });
 
+      // Skill bar animation on scroll
       const skillBars = document.querySelectorAll(".skill-fill");
       const observer = new IntersectionObserver(
         (entries) => {
@@ -640,8 +738,11 @@
         { threshold: 0.3 }
       );
       skillBars.forEach((bar) => observer.observe(bar));
+
+      // Re-initialize Lucide icons after DOM updates
+      setTimeout(() => {
+        lucide.createIcons();
+      }, 100);
     </script>
   </body>
 </html>
-
-
