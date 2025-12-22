@@ -1,9 +1,37 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id-ID" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Bryant Tuakora - Informatics Engineering</title>
+    <title>Portfolio Bryant Tuakora - Frontend Developer & Designer</title>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Portfolio Bryant Tuakora - Frontend Developer & Designer mahasiswa Teknik Informatika Universitas Nusa Putra. Spesialis dalam pengembangan web modern dan UI/UX design."
+    />
+    <meta
+      name="keywords"
+      content="Bryant Tuakora, Frontend Developer, Web Developer, Portfolio, Teknik Informatika, Universitas Nusa Putra"
+    />
+    <meta name="author" content="Bryant Tuakora" />
+
+    <!-- Preload & Preconnect -->
+    <link rel="preload" as="image" href="logo bt.png" />
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+    <link rel="preconnect" href="https://unpkg.com" />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Portfolio Bryant Tuakora - Frontend Developer"
+    />
+    <meta
+      property="og:description"
+      content=" Mahasiswa semester 7 Teknik Informatika di Universitas Nusa Putra
+            dengan passion membuat website yang modern dan user-friendly."
+    />
+    <meta property="og:type" content="website" />
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -12,6 +40,39 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
+      /* Loading Screen */
+      #loadingScreen {
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(135deg, #111827 0%, #000000 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease;
+      }
+
+      #loadingScreen.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .loader {
+        width: 50px;
+        height: 50px;
+        border: 4px solid rgba(255, 255, 255, 0.1);
+        border-top-color: white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Skill Bar */
       .skill-bar {
         height: 12px;
         background: #374151;
@@ -24,6 +85,8 @@
         border-radius: 9999px;
         transition: width 1.5s ease-in-out;
       }
+
+      /* Hamburger */
       .hamburger-line {
         width: 1.5rem;
         height: 2px;
@@ -31,7 +94,7 @@
         transition: all 0.3s;
       }
 
-      /* Video Background - Only for Home */
+      /* Video Background */
       #home video {
         position: absolute;
         top: 0;
@@ -42,7 +105,16 @@
         z-index: 0;
       }
 
-      /* Video Control Buttons */
+      /* Video Fallback Background */
+      #home::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+        z-index: -1;
+      }
+
+      /* Video Controls */
       .video-controls {
         position: fixed;
         bottom: 30px;
@@ -79,20 +151,98 @@
         transform: scale(1.05);
       }
 
-      .video-control-btn:active {
-        transform: scale(0.95);
+      /* Scroll to Top Button */
+      #scrollToTop {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        z-index: 99;
+      }
+
+      #scrollToTop.show {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      #scrollToTop:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-5px);
+      }
+
+      /* Dark Mode Toggle */
+      .theme-toggle {
+        position: fixed;
+        top: 80px;
+        right: 30px;
+        z-index: 100;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .theme-toggle:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: scale(1.05);
+      }
+
+      /* Light Mode Styles */
+      body.light-mode {
+        background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+        color: #111827;
+      }
+
+      body.light-mode .bg-gray-800\/50 {
+        background: rgba(255, 255, 255, 0.8) !important;
+      }
+
+      body.light-mode .border-gray-700 {
+        border-color: #d1d5db !important;
+      }
+
+      body.light-mode .text-gray-300,
+      body.light-mode .text-gray-400 {
+        color: #4b5563 !important;
+      }
+
+      body.light-mode #navbar {
+        background: rgba(255, 255, 255, 0.95) !important;
+        color: #111827;
+      }
+
+      body.light-mode .hamburger-line {
+        background: #111827;
       }
 
       @media (max-width: 640px) {
-        .video-controls {
+        .video-controls,
+        #scrollToTop,
+        .theme-toggle {
           bottom: 20px;
           right: 20px;
-          gap: 8px;
         }
-
-        .video-control-btn {
-          width: 40px;
-          height: 40px;
+        .theme-toggle {
+          top: 70px;
         }
       }
 
@@ -164,24 +314,19 @@
       .fade-in-up {
         animation-name: fadeInUp;
       }
-
       .fade-in-left {
         animation-name: fadeInLeft;
       }
-
       .fade-in-right {
         animation-name: fadeInRight;
       }
-
       .scale-in {
         animation-name: scaleIn;
       }
-
       .float-animation {
         animation: float 3s ease-in-out infinite;
       }
 
-      /* Stagger animation delays */
       .delay-100 {
         animation-delay: 0.1s;
       }
@@ -200,11 +345,75 @@
       .delay-600 {
         animation-delay: 0.6s;
       }
+
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        backdrop-filter: blur(10px);
+      }
+
+      .modal.active {
+        display: flex;
+      }
+
+      .modal-content {
+        background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+        border-radius: 20px;
+        max-width: 800px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        padding: 40px;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        animation: scaleIn 0.3s ease;
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .modal-close:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: rotate(90deg);
+      }
     </style>
   </head>
   <body
     class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white"
   >
+    <!-- Loading Screen -->
+    <div id="loadingScreen">
+      <div class="loader"></div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" aria-label="Scroll to top">
+      <i data-lucide="arrow-up" class="w-6 h-6 text-white"></i>
+    </button>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <i id="themeIcon" data-lucide="sun" class="w-5 h-5 text-white"></i>
+    </button>
+
     <!-- Navigation -->
     <nav
       id="navbar"
@@ -214,14 +423,14 @@
         class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center"
       >
         <div class="flex items-center gap-3">
-          <!-- Logo -->
           <div
             class="w-10 h-10 bg-gradient-to-br from-white to-gray-400 rounded-lg flex items-center justify-center font-bold text-black text-xl shadow-lg"
           >
             <img
               src="logo bt.png"
-              alt="Logo"
+              alt="Logo Bryant Tuakora"
               class="w-10 h-10 rounded-lg object-cover"
+              onerror="this.style.display='none'; this.parentElement.innerHTML='BT';"
             />
           </div>
           <div>
@@ -259,10 +468,11 @@
           >
         </div>
 
-        <!-- Hamburger Button (Mobile) -->
+        <!-- Hamburger Button -->
         <button
           id="hamburgerBtn"
           class="md:hidden z-50 relative w-8 h-8 flex flex-col justify-center items-center gap-1.5"
+          aria-label="Toggle menu"
         >
           <span class="hamburger-line origin-center"></span>
           <span class="hamburger-line"></span>
@@ -271,7 +481,7 @@
       </div>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
+    <!-- Mobile Menu -->
     <div
       id="mobileMenu"
       class="fixed inset-0 bg-black/95 backdrop-blur-md z-40 hidden flex-col items-center justify-center"
@@ -310,7 +520,15 @@
       id="home"
       class="min-h-screen flex items-center justify-center px-6 pt-20 relative overflow-hidden"
     >
-      <!-- Background Video - Only for Home Section -->
+      <!-- Video Loader -->
+      <div
+        id="videoLoader"
+        class="absolute inset-0 flex items-center justify-center bg-gray-900 z-10"
+      >
+        <div class="loader"></div>
+      </div>
+
+      <!-- Background Video -->
       <video
         id="heroVideo"
         class="absolute inset-0 w-full h-full object-cover z-0 opacity-40"
@@ -322,14 +540,13 @@
         <source src="29_4_2025, 20.38.42.mp4" type="video/mp4" />
       </video>
 
-      <!-- Video Overlay - Lighter for better video visibility -->
+      <!-- Video Overlay -->
       <div
         class="absolute inset-0 bg-gradient-to-br from-gray-900/70 via-gray-800/60 to-black/75 z-0"
       ></div>
 
-      <!-- Video Control Buttons -->
+      <!-- Video Controls -->
       <div id="videoControls" class="video-controls">
-        <!-- Play/Pause Button -->
         <button
           id="playPauseBtn"
           class="video-control-btn"
@@ -341,12 +558,10 @@
             class="w-5 h-5 text-white"
           ></i>
         </button>
-
-        <!-- Mute/Unmute Button -->
         <button
           id="muteBtn"
           class="video-control-btn"
-          aria-label="Toggle video sound"
+          aria-label="Toggle sound"
         >
           <i
             id="muteIcon"
@@ -359,7 +574,7 @@
       <div
         class="relative z-10 max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center"
       >
-        <!-- Foto Profil -->
+        <!-- Profile Photo -->
         <div class="flex flex-col items-center animate-on-scroll scale-in">
           <div class="relative group float-animation">
             <div
@@ -368,7 +583,7 @@
               <img
                 id="profileImg"
                 src="Black White.png"
-                alt="Bryant Tuakora"
+                alt="Foto profil Bryant Tuakora - Frontend Developer"
                 class="w-full h-full object-cover"
                 onerror="this.src='https://via.placeholder.com/400x400/1f2937/ffffff?text=Bryant+Tuakora'"
               />
@@ -379,7 +594,7 @@
           </div>
         </div>
 
-        <!-- Teks -->
+        <!-- Text -->
         <div class="text-center md:text-left">
           <h1
             class="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 animate-on-scroll fade-in-right drop-shadow-2xl"
@@ -425,20 +640,28 @@
             <a
               href="https://github.com/Febriano-Doweng"
               target="_blank"
+              rel="noopener noreferrer"
               class="hover:text-gray-300 transition-colors"
-              ><i data-lucide="github" class="w-8 h-8"></i
-            ></a>
+              aria-label="GitHub"
+            >
+              <i data-lucide="github" class="w-8 h-8"></i>
+            </a>
             <a
               href="https://www.linkedin.com/in/brynd-tuakora-8a8a28293/"
               target="_blank"
+              rel="noopener noreferrer"
               class="hover:text-gray-300 transition-colors"
-              ><i data-lucide="linkedin" class="w-8 h-8"></i
-            ></a>
+              aria-label="LinkedIn"
+            >
+              <i data-lucide="linkedin" class="w-8 h-8"></i>
+            </a>
             <a
               href="mailto:febriano.doweng_ti22@nusaputra.ac.id"
               class="hover:text-gray-300 transition-colors"
-              ><i data-lucide="mail" class="w-8 h-8"></i
-            ></a>
+              aria-label="Email"
+            >
+              <i data-lucide="mail" class="w-8 h-8"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -532,11 +755,12 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Project 1 -->
           <div
-            class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border-2 border-gray-700 hover:border-white hover:scale-105 transition-all duration-300 animate-on-scroll fade-in-up"
+            class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border-2 border-gray-700 hover:border-white hover:scale-105 transition-all duration-300 cursor-pointer animate-on-scroll fade-in-up project-card"
+            data-project="1"
           >
             <img
               src="Screenshot 2025-12-05 102901.png"
-              alt="Company Website"
+              alt="Screenshot Company Profile Website"
               class="w-full h-48 object-cover rounded-xl mb-6"
               onerror="this.src='https://via.placeholder.com/400x300/1f2937/ffffff?text=Company+Profile'"
             />
@@ -544,7 +768,7 @@
             <p class="text-gray-400 mb-6">
               Website profil perusahaan dengan desain modern dan responsif
             </p>
-            <div class="flex flex-wrap gap-3 mb-6">
+            <div class="flex flex-wrap gap-3 mb-4">
               <span class="px-4 py-1 bg-white/10 rounded-full text-sm"
                 >HTML</span
               >
@@ -555,23 +779,29 @@
                 >JavaScript</span
               >
             </div>
+            <button
+              class="text-sm text-gray-300 hover:text-white transition-colors flex items-center gap-2"
+            >
+              Lihat Detail <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
           </div>
 
-          <!-- Project 2 - portofolio -->
+          <!-- Project 2 -->
           <div
-            class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border-2 border-gray-700 hover:border-white hover:scale-105 transition-all duration-300"
+            class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border-2 border-gray-700 hover:border-white hover:scale-105 transition-all duration-300 cursor-pointer animate-on-scroll fade-in-up delay-100 project-card"
+            data-project="2"
           >
             <img
               src="Screenshot 2025-12-22 082716.png"
-              alt="Company Website"
+              alt="Screenshot Portfolio Website"
               class="w-full h-48 object-cover rounded-xl mb-6"
-              onerror="this.src='https://via.placeholder.com/400x300/1f2937/ffffff?text=Company+Profile'"
+              onerror="this.src='https://via.placeholder.com/400x300/1f2937/ffffff?text=Portfolio'"
             />
             <h3 class="text-2xl font-bold mb-3">Portfolio Website</h3>
             <p class="text-gray-400 mb-6">
               Website portfolio pribadi dengan animasi interaktif
             </p>
-            <div class="flex flex-wrap gap-3 mb-6">
+            <div class="flex flex-wrap gap-3 mb-4">
               <span class="px-4 py-1 bg-white/10 rounded-full text-sm"
                 >HTML</span
               >
@@ -582,6 +812,11 @@
                 >JavaScript</span
               >
             </div>
+            <button
+              class="text-sm text-gray-300 hover:text-white transition-colors flex items-center gap-2"
+            >
+              Lihat Detail <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
           </div>
 
           <!-- Project 3 -->
@@ -597,7 +832,7 @@
             <p class="text-gray-400 mb-6">
               Proyek baru sedang dalam pengembangan
             </p>
-            <div class="flex flex-wrap gap-3 mb-6">
+            <div class="flex flex-wrap gap-3 mb-4">
               <span class="px-4 py-1 bg-white/10 rounded-full text-sm"
                 >TBA</span
               >
@@ -606,6 +841,16 @@
         </div>
       </div>
     </section>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+      <div class="modal-content relative">
+        <button class="modal-close" id="closeModal" aria-label="Close modal">
+          <i data-lucide="x" class="w-6 h-6 text-white"></i>
+        </button>
+        <div id="modalContent"></div>
+      </div>
+    </div>
 
     <!-- CV Section -->
     <section
@@ -655,13 +900,12 @@
                     SMK - Teknik Komputer & Jaringan
                   </p>
                   <p class="text-gray-300">
-                    SMK St. Yohanes Donbosco Teknologi Dan Rekayasa Mimika,
-                    Kabupaten Mimika
+                    SMK St. Yohanes Donbosco Teknologi Dan Rekayasa Mimika
                   </p>
                   <p class="text-gray-400 text-sm">2017 - 2020</p>
                   <p class="text-gray-400 text-sm mt-1">
                     JL. Baru Depan Petrosea Irigasi Dalam, Kwamki, Kec. Mimika
-                    Baru, Kab. Mimika, Papua.
+                    Baru, Kab. Mimika, Papua
                   </p>
                 </div>
               </div>
@@ -698,9 +942,6 @@
               <h3 class="text-2xl font-bold mb-4">Sertifikat</h3>
               <div class="space-y-2 text-gray-300">
                 <p>• Sertifikat Seminar Web Development - Dicoding Indonesia</p>
-                <p class="text-gray-400 text-sm">
-                  (Tambahkan sertifikat lainnya di sini)
-                </p>
               </div>
             </div>
           </div>
@@ -811,7 +1052,9 @@
               </div>
               <div class="flex-1 min-w-0">
                 <p class="font-bold text-sm">GitHub</p>
-                <p class="text-gray-400 text-xs truncate">Portfolio kode & proyek</p>
+                <p class="text-gray-400 text-xs truncate">
+                  Portfolio kode & proyek
+                </p>
               </div>
               <i
                 data-lucide="external-link"
@@ -873,7 +1116,18 @@
     </footer>
 
     <script>
+      // Initialize Lucide Icons
       lucide.createIcons();
+
+      // Loading Screen
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          document.getElementById("loadingScreen").classList.add("fade-out");
+          setTimeout(() => {
+            document.getElementById("loadingScreen").style.display = "none";
+          }, 500);
+        }, 1000);
+      });
 
       // Navbar scroll effect
       window.addEventListener("scroll", () => {
@@ -887,6 +1141,31 @@
             "shadow-lg"
           );
         }
+
+        // Scroll to top button
+        const scrollBtn = document.getElementById("scrollToTop");
+        if (window.scrollY > 300) {
+          scrollBtn.classList.add("show");
+        } else {
+          scrollBtn.classList.remove("show");
+        }
+      });
+
+      // Scroll to top functionality
+      document.getElementById("scrollToTop").addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // Theme Toggle
+      const themeToggle = document.getElementById("themeToggle");
+      const themeIcon = document.getElementById("themeIcon");
+      let isDark = true;
+
+      themeToggle.addEventListener("click", () => {
+        isDark = !isDark;
+        document.body.classList.toggle("light-mode");
+        themeIcon.setAttribute("data-lucide", isDark ? "sun" : "moon");
+        lucide.createIcons();
       });
 
       // Hamburger menu
@@ -897,7 +1176,6 @@
       hamburgerBtn.addEventListener("click", () => {
         mobileMenu.classList.toggle("hidden");
         mobileMenu.classList.toggle("flex");
-
         lines[0].classList.toggle("rotate-45");
         lines[0].classList.toggle("translate-y-2");
         lines[1].classList.toggle("opacity-0");
@@ -905,18 +1183,19 @@
         lines[2].classList.toggle("-translate-y-2");
       });
 
-      // Close mobile menu when clicking on link
+      // Close mobile menu
       document.querySelectorAll(".menu-link").forEach((link) => {
         link.addEventListener("click", () => {
-          mobileMenu.classList.add("hidden");
-          mobileMenu.classList.remove("flex");
-          lines[0].classList.remove("rotate-45", "translate-y-2");
-          lines[1].classList.remove("opacity-0");
-          lines[2].classList.remove("-rotate-45", "-translate-y-2");
+          setTimeout(() => {
+            mobileMenu.classList.add("hidden");
+            mobileMenu.classList.remove("flex");
+            lines[0].classList.remove("rotate-45", "translate-y-2");
+            lines[1].classList.remove("opacity-0");
+            lines[2].classList.remove("-rotate-45", "-translate-y-2");
+          }, 300);
         });
       });
 
-      // Close mobile menu when clicking outside
       mobileMenu.addEventListener("click", (e) => {
         if (e.target === mobileMenu) {
           mobileMenu.classList.add("hidden");
@@ -927,9 +1206,9 @@
         }
       });
 
-      // Skill bar animation on scroll
+      // Skill bar animation
       const skillBars = document.querySelectorAll(".skill-fill");
-      const observer = new IntersectionObserver(
+      const skillObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -941,52 +1220,28 @@
         },
         { threshold: 0.3 }
       );
-      skillBars.forEach((bar) => observer.observe(bar));
+      skillBars.forEach((bar) => skillObserver.observe(bar));
 
-      // Re-initialize Lucide icons after DOM updates
-      setTimeout(() => {
-        lucide.createIcons();
-      }, 100);
-
-      // Scroll Animation Observer
+      // Scroll animations
       const animateOnScroll = () => {
         const elements = document.querySelectorAll(".animate-on-scroll");
-
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
                 entry.target.classList.add("animated");
-
-                // Add appropriate animation class
-                if (entry.target.classList.contains("fade-in-up")) {
-                  entry.target.classList.add("fade-in-up");
-                } else if (entry.target.classList.contains("fade-in-left")) {
-                  entry.target.classList.add("fade-in-left");
-                } else if (entry.target.classList.contains("fade-in-right")) {
-                  entry.target.classList.add("fade-in-right");
-                } else if (entry.target.classList.contains("scale-in")) {
-                  entry.target.classList.add("scale-in");
-                }
               }
             });
           },
-          {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px",
-          }
+          { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
         );
-
-        elements.forEach((element) => {
-          observer.observe(element);
-        });
+        elements.forEach((el) => observer.observe(el));
       };
-
-      // Initialize animations
       animateOnScroll();
 
-      // Video Controls
+      // Video controls
       const heroVideo = document.getElementById("heroVideo");
+      const videoLoader = document.getElementById("videoLoader");
       const videoControls = document.getElementById("videoControls");
       const playPauseBtn = document.getElementById("playPauseBtn");
       const playPauseIcon = document.getElementById("playPauseIcon");
@@ -995,6 +1250,18 @@
 
       let isPlaying = true;
       let isMuted = true;
+
+      // Video loaded
+      heroVideo.addEventListener("loadeddata", () => {
+        videoLoader.style.display = "none";
+      });
+
+      // Video error handling
+      heroVideo.addEventListener("error", (e) => {
+        console.error("Video failed to load:", e);
+        videoLoader.style.display = "none";
+        videoControls.style.display = "none";
+      });
 
       // Play/Pause toggle
       playPauseBtn.addEventListener("click", () => {
@@ -1007,46 +1274,118 @@
         }
         isPlaying = !isPlaying;
         lucide.createIcons();
-
-        // Pulse effect
         playPauseBtn.style.transform = "scale(1.15)";
         setTimeout(() => {
           playPauseBtn.style.transform = "scale(1)";
         }, 150);
       });
 
-      // Mute/Unmute toggle
+      // Mute toggle
       muteBtn.addEventListener("click", () => {
         isMuted = !isMuted;
         heroVideo.muted = isMuted;
-
-        // Update icon
         muteIcon.setAttribute("data-lucide", isMuted ? "volume-x" : "volume-2");
         lucide.createIcons();
-
-        // Pulse effect
         muteBtn.style.transform = "scale(1.15)";
         setTimeout(() => {
           muteBtn.style.transform = "scale(1)";
         }, 150);
       });
 
-      // Hide/Show controls based on scroll position
+      // Hide controls when scrolling away from home
       window.addEventListener("scroll", () => {
         const homeSection = document.getElementById("home");
         const homeSectionHeight = homeSection.offsetHeight;
-        const currentScrollY = window.scrollY;
-
-        // Show controls only when in home section
-        if (currentScrollY < homeSectionHeight - 100) {
+        if (window.scrollY < homeSectionHeight - 100) {
           videoControls.classList.remove("hidden-control");
         } else {
           videoControls.classList.add("hidden-control");
         }
       });
+
+      // Project Modal
+      const projectModal = document.getElementById("projectModal");
+      const modalContent = document.getElementById("modalContent");
+      const closeModal = document.getElementById("closeModal");
+
+      const projectDetails = {
+        1: {
+          title: "Company Profile",
+          description:
+            "Website profil perusahaan modern dengan desain yang profesional dan responsif. Dibuat dengan fokus pada user experience dan performa yang optimal.",
+          features: [
+            "Desain responsif untuk semua device",
+            "Animasi smooth dan interaktif",
+            "SEO-friendly structure",
+            "Fast loading time",
+          ],
+          tech: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS"],
+          image: "img/Screenshot 2025-12-05 102901.png",
+        },
+        2: {
+          title: "Portfolio Website",
+          description:
+            "Website portfolio pribadi dengan animasi interaktif dan desain modern. Menampilkan proyek-proyek dan kemampuan secara profesional.",
+          features: [
+            "Video background interaktif",
+            "Scroll animations",
+            "Dark/Light mode toggle",
+            "Mobile-first responsive design",
+          ],
+          tech: ["HTML5", "CSS3", "JavaScript", "Lucide Icons"],
+          image: "img/Screenshot 2025-12-22 082716.png",
+        },
+      };
+
+      document.querySelectorAll(".project-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          const projectId = card.getAttribute("data-project");
+          const project = projectDetails[projectId];
+
+          modalContent.innerHTML = `
+            <h2 class="text-3xl font-bold mb-4">${project.title}</h2>
+            <img src="${project.image}" alt="${
+            project.title
+          }" class="w-full h-64 object-cover rounded-xl mb-6" onerror="this.src='https://via.placeholder.com/800x400/1f2937/ffffff?text=Project+Image'" />
+            <p class="text-gray-300 mb-6 leading-relaxed">${
+              project.description
+            }</p>
+            
+            <h3 class="text-xl font-bold mb-3">Fitur Utama:</h3>
+            <ul class="list-disc list-inside text-gray-300 mb-6 space-y-2">
+              ${project.features.map((f) => `<li>${f}</li>`).join("")}
+            </ul>
+            
+            <h3 class="text-xl font-bold mb-3">Teknologi:</h3>
+            <div class="flex flex-wrap gap-3 mb-6">
+              ${project.tech
+                .map(
+                  (t) =>
+                    `<span class="px-4 py-2 bg-white/10 rounded-full text-sm">${t}</span>`
+                )
+                .join("")}
+            </div>
+          `;
+
+          projectModal.classList.add("active");
+          lucide.createIcons();
+        });
+      });
+
+      closeModal.addEventListener("click", () => {
+        projectModal.classList.remove("active");
+      });
+
+      projectModal.addEventListener("click", (e) => {
+        if (e.target === projectModal) {
+          projectModal.classList.remove("active");
+        }
+      });
+
+      // Refresh icons
+      setTimeout(() => {
+        lucide.createIcons();
+      }, 100);
     </script>
   </body>
 </html>
-
-
-
